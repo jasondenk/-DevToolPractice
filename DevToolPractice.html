@@ -49,7 +49,7 @@ console.log('Hello I am a %s string!', 'DENK');
 
     // Grouping together
     dogs.forEach(dog=> {
-      console.group(`{dog.name}`);
+      console.groupCollapsed(`{dog.name}`);
       console.log(`This is ${dog.name}`);
       console.log(`${dog.name} is ${dog.age} years old`);
       console.log(`${dog.name} is ${dog.age * 7} dog years old`);
@@ -57,8 +57,24 @@ console.log('Hello I am a %s string!', 'DENK');
     });
 
     // counting
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
 
   </script>
 </body>
